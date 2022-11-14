@@ -2,7 +2,7 @@
 
 Repeatedly clone content of source to target volume using [rclone](https://rclone.org/)
 
-Image based on [official rclone image](https://hub.docker.com/r/rclone/rclone)
+Image is based on [official rclone image](https://hub.docker.com/r/rclone/rclone)
 
 # Usage
 
