@@ -22,10 +22,11 @@ $ docker run \
     -v <rclonefile>:/rclone.conf \
     kreees/repeated-rclone  
 
-# Sync localdir content content to target once
+# Sync localdir nonexisting content to remote target once
 $ docker run \
     --env "TARGET=<targetlocation>" \
     --env "ACTION=sync" \
+    --env "EXTRA=--ignore-existing"
     -v <sourcedir>:/mnt \
     -v <rclonefile>:/rclone.conf \
     kreees/repeated-rclone
@@ -34,10 +35,11 @@ $ docker run \
 # Params
 
 - [Rclone config](https://rclone.org/docs/#config-config-file) - should be mounted to /rclone.conf destination (optional)
-- *$SOURCE* - source location (default: `/mnt`)
-- *$TARGET* - target location (default: `/mnt`)
-- *$ACTION* - rclone action (default: `copy`)
-- *$REPEATEVERY* - repeat action every $REPEATEVERY seconds (default: `0`, means once)
+- **$SOURCE** - source location (default: `/mnt`)
+- **$TARGET** - target location (default: `/mnt`)
+- **$ACTION** - rclone action (default: `copy`)
+- **$REPEATEVERY** - repeat action every $REPEATEVERY seconds (default: `0`, means once)
+- **$EXTRA** - extra arguments passed at the end of command
 
 ---
 
