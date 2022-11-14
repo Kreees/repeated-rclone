@@ -12,7 +12,7 @@ $ docker run \
     --env "SOURCE=<sourcelocation>" \
     --env "TARGET=<targetlocation>" \
     -v <rclonefile>:/rclone.conf \
-    rclone
+    kreees/repeated-rclone
 
 # Clone source content to target localdir every 1 hour
 $ docker run \
@@ -20,7 +20,7 @@ $ docker run \
     --env "REPEATEVERY=3600" \
     -v <targetdir>:/mnt \
     -v <rclonefile>:/rclone.conf \
-    rclone  
+    kreees/repeated-rclone  
 
 # Sync localdir content content to target once
 $ docker run \
@@ -28,7 +28,7 @@ $ docker run \
     --env "ACTION=sync" \
     -v <sourcedir>:/mnt \
     -v <rclonefile>:/rclone.conf \
-    rclone
+    kreees/repeated-rclone
 ```
 
 # Params
