@@ -6,6 +6,7 @@ _SOURCE=${SOURCE:-"/mnt"}
 _ACTION=${ACTION:-"copy"}
 
 _CONFIG=""
+
 if [ -f /rclone.conf ]; then
 	_CONFIG=" --config /rclone.conf"
 fi
@@ -16,8 +17,10 @@ if [ "$SOURCE" == "$TARGET" ]; then
 fi
 
 rclone $_CONFIG $_ACTION $_SOURCE $_TARGET
+echo "$ACTION is complete: $(date)"
 while [ "$_REPEATEVERY" -gt "0" ]
 do
 	sleep $_REPEATEVERY;
 	rclone $_CONFIG $_ACTION $_SOURCE $_TARGET
+	echo "$ACTION is complete: $(date)"
 done
